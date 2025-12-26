@@ -180,7 +180,7 @@ function processFile(input, output, file) {
     Stack.setChannel(2);
     //run("Enhance Contrast...", "saturated=0.35");
     setMinAndMax(1000, 7000);
-    saveAs("tif", output + File.separator + main_file_name + "_positive_label.tif");
+    saveAs("tif", output + File.separator + main_file_name + "_positive_overlay.tif");
     
     //run("Flatten");
     //saveAs("tif", output + File.separator + main_file_name + "_positive_label.tif");
