@@ -1,5 +1,8 @@
 # yeast-nuclear-puncta-cell-counter
 
+![simple_explain](/docs/simple_explain.png)
+
+
 ### Fiji/ InageJ Macro: Cellpose + CLIJ2 pipeline for positive-cell detection
 
 This repository contains an ImageJ/Fiji macro for batch-processing `.czi` images to:
