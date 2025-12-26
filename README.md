@@ -13,6 +13,7 @@ This repository contains an ImageJ/Fiji macro for batch-processing `.czi` images
 - Recursive batch processing of folders/subfolders
 - GPU-accelerated filtering + masking using CLIJ2
 - Cell segmentation via Cellpose (cyto3)
+- Excludes edge-touching and overexposed cells prior to quantification
 - Outputs:
   - `*_label.tif` (filtered cell labels)
   - `*_positive_label.tif` (visualization / overlay output)
@@ -91,10 +92,12 @@ For each input image `NAME.czi`, the macro produces in the output directory:
 - Positive cells are those whose label region satisfies the merged-mask criterion
   (see macro section near `positive_map` / `positive_label`).
 
+#### Exclusion criteria
+- Edge-touching cells were excluded (labels on image borders are removed).
+- Overexposed cells (likely dead cells) were excluded (labels containing saturated/overexposed pixels are removed).
+
 #### Known limitations
 - Hard-coded crop ROI (dataset-specific).
-- Cell counting currently assumes `max(label) == number of cells`
-  (may be inaccurate if labels are non-contiguous after filtering).
 - Channel title assumptions after "Split Channels" may differ across Fiji versions.
 
 ### References
@@ -130,10 +133,3 @@ For each input image `NAME.czi`, the macro produces in the output directory:
 #### BioVoxxel 3D Box (Fiji plugin)
 - GitHub: https://github.com/biovoxxel/3D_Box
 - BioVoxxel 3D Box (provides “Labels to 2D Roi Manager” in Fiji).  
-
-#### Citation / acknowledgment
-If you use this macro in a publication, please cite/acknowledge:
-Wei‑Chen CHU, ICOB Imaging Core, Academia Sinica, Taiwan.
-
-
-
